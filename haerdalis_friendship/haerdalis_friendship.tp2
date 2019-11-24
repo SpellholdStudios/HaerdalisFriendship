@@ -4,55 +4,55 @@
 // Basics
 BACKUP ~haerdalis_friendship/backup~
 AUTHOR ~Aeryn~
-VERSION ~1.0~
-README ~haerdalis_friendship/haerdalis_friendship.html~
+VERSION ~v1.1~
+README ~haerdalis_friendship/haerdalisfriendship-readme-english.html~
 
 ALWAYS
-// eet compatibility
-ACTION_IF (GAME_IS ~eet~) BEGIN
-  OUTER_SET bg2_chapter = 12
-END ELSE BEGIN
-  OUTER_SET bg2_chapter = 0
-END
-OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
-  OUTER_SET bg2_chapter = bg2_chapter + 1
-  OUTER_SPRINT name_source ~bg2_chapter_%i%~
-  OUTER_SET EVAL ~%name_source%~ = bg2_chapter
-END
+	// eet compatibility
+	ACTION_IF (GAME_IS ~eet~) BEGIN
+		OUTER_SET bg2_chapter = 12
+	END ELSE BEGIN
+		OUTER_SET bg2_chapter = 0
+	END
+	OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+		OUTER_SET bg2_chapter = bg2_chapter + 1
+		OUTER_SPRINT name_source ~bg2_chapter_%i%~
+		OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+	END
 
-  // Borrowed from Edwin Romance: convert strings to UTF-8 for BGEE/BG2EE
+	/* Converts tra files to UTF-8 */
+	// Borrowed from Edwin Romance: convert strings to UTF-8 for BGEE/BG2EE
+	// setup.tra contains in game texts as well as installation texts and need to be converted
+	ACTION_DEFINE_ARRAY noconvert BEGIN END
+	ACTION_DEFINE_ARRAY reload BEGIN setup END
 
-  // setup.tra contains in game texts as well as installation texts
-  // and need to be converted
-  ACTION_DEFINE_ARRAY noconvert BEGIN END
-  ACTION_DEFINE_ARRAY reload BEGIN setup END
+	LAF HANDLE_CHARSETS
+		INT_VAR
+			infer_charset = 1
+		STR_VAR
+			tra_path = EVAL ~%MOD_FOLDER%/translations~
+		// charset_table = charsets // Use HANDLE_CHARSETS built-in rule for charset choice
+			noconvert_array = noconvert
+			reload_array = reload
+	END
 
-  LAF HANDLE_CHARSETS
-    INT_VAR
-      infer_charset = 1
-    STR_VAR
-      tra_path = EVAL ~%MOD_FOLDER%/translations~
-      // charset_table = charsets // Use HANDLE_CHARSETS built-in rule for charset choice
-      noconvert_array = noconvert
-      reload_array = reload
-  END
 END
 
 AUTO_TRA ~haerdalis_friendship/translations/%s~
 
 LANGUAGE ~English~
-         ~English~
+         ~english~
          ~haerdalis_friendship/translations/english/setup.tra~
 
-BEGIN @0 /* Haer'Dalis Friendship for BG2: ToB */
 
+BEGIN @0 /* Haer'Dalis Friendship for BG2: ToB */
 REQUIRE_PREDICATE GAME_INCLUDES ~tob~ @1 /* You must have Throne of Bhaal installed. */
 
 // Adding CD_STATE_NOTVALID
 APPEND ~STATE.IDS~
   ~0x80101FEF CD_STATE_NOTVALID~
   UNLESS ~CD_STATE_NOTVALID~
-  
+
 // Compiling dialogue & scripts SOA
 COMPILE ~haerdalis_friendship/dialogues/haerdaj.d~
 EXTEND_BOTTOM ~haerdali.bcs~ ~haerdalis_friendship/scripts/haerdali.baf~ EVALUATE_BUFFER
@@ -60,5 +60,3 @@ EXTEND_BOTTOM ~haerdali.bcs~ ~haerdalis_friendship/scripts/haerdali.baf~ EVALUAT
 // Compiling dialogue & scripts TOB
 COMPILE ~haerdalis_friendship/dialogues/haerd25j.d~
 EXTEND_BOTTOM ~haer25.bcs~ ~haerdalis_friendship/scripts/haer25.baf~
-
-
