@@ -160,6 +160,7 @@ A: Sure, we'd be happy to. If you are interested in translating, just send us a 
 - Updated deprecated modding tools links.
 - Lower cased files.
 - Updated and renamed readme file to *haerdalisfriendship-readme-english.html*.
+- Removed inaccurate backup sub-folder in translation folder.
 - Included Linux and Mac Os X versions in the same package (thanks AL|EN!).
 - Updated WeiDU installer to v246.
 - Transfered mod to SpellHold Studios GitHub account.
