@@ -25,7 +25,7 @@ Baldur's Gate Trilogy and EET<h3>
 
 ## <a name="intro" id="intro"></a>Overview
 
-One of the things many find sorely lacking in the Bioware NPCs are the more complex relationships presented by modern NPC mods--especially in regards to "friendships," the relationships NPCs have with the PC when not romancing them.
+One of the things many find sorely lacking in the Bioware NPCs are the more complex relationships presented by modern NPC mods--especially in regards to "friendships", the relationships NPCs have with the PC when not romancing them.
 
 This mod adds a series of dialogues with Haer'dalis.
 
@@ -87,7 +87,7 @@ In addition to the methods above for removing individual components, you can com
 ## <a name="faq" id="faq"></a>Frequently Asked Questions
 
 **Q: Is the Haer'dalis Friendship compatible with XYZ mod?**  
-A: It most certainly should be, but we have not tested it with every single mod available. If you do encounter an error, please contact K'aeloree (kae@spellholdstudios.net) or alternatively post on the <a href="http://www.shsforums.net">forums</a>.
+A: It most certainly should be, but we have not tested it with every single mod available. If you do encounter an error, please contact <a href="kae@spellholdstudios.net">K'aeloree</a> or alternatively post on the <a href="http://www.shsforums.net">forums</a>.
 
 **Q: Is it compatible with Aeryn's Haer'dalis romance?**  
 A: Yes, as there are significant similarities between the two mods. Depending on where you break off your romance with Haer'dalis, the friendship will immediately begin at the appropriate point in the track.
