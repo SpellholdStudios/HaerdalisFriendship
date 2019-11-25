@@ -8,7 +8,8 @@ VERSION ~v1.1~
 README ~haerdalis_friendship/haerdalisfriendship-readme-english.html~
 
 ALWAYS
-	// eet compatibility
+
+	/* eet compatibility */
 	ACTION_IF (GAME_IS ~eet~) BEGIN
 		OUTER_SET bg2_chapter = 12
 	END ELSE BEGIN
