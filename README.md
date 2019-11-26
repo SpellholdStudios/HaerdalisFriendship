@@ -157,6 +157,7 @@ A: Sure, we'd be happy to. If you are interested in translating, just send us a 
 ##### Version 1.1 (November 24, 2019)
 
 - Added *haerdalis_friendship.ini* metadata file to support AL|EN's "Project Infinity".
+- Component: added *DESIGNATED* number and "*haerdalis_friendship*" LABEL.
 - Updated deprecated modding tools links.
 - Lower cased files.
 - Updated and renamed readme file to *haerdalisfriendship-readme-english.html*.
