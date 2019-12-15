@@ -60,15 +60,14 @@ jobs:
           $iniData = try { Get-Content $ModTopDirectory/$ModID/$ModID.ini -EA 0 } catch { }
           # Github release asset name limitation
           if ($iniData) {
-              $ModDisplayName = (($iniData | ? { $_ -notlike "*#*" -and $_ -like "Name*=*" }) -split '=')[1].TrimStart(' ').TrimEnd(' ')
-              $simplePackageBaseName = (($ModDisplayName -replace "\s+",'-') -replace "\W").TrimStart('_').TrimEnd('_')
+              $ModDisplayName = ((($iniData | ? { $_ -notlike "^\s+#*" -and $_ -like "Name*=*" }) -split '=') -split '#')[1].TrimStart(' ').TrimEnd(' ')
+              $simplePackageBaseName = (($ModDisplayName -replace "\s+", '_') -replace "\W") -replace '_+','-'
               $simpleVersion = $ModVersion -replace "\s+",'-'
-              $PackageBaseName = $simplePackageBaseName + '-' + $simpleVersion
-
+              $PackageBaseName = ($simplePackageBaseName + '-' + $simpleVersion).ToLower()
           } else {
-              $simplePackageBaseName = (($ModID -replace "\s+",'-') -replace "\W").TrimStart('_').TrimEnd('_')
+              $simplePackageBaseName = (($ModID -replace "\s+", '_') -replace "\W") -replace '_+','-'
               $simpleVersion = $ModVersion -replace "\s+",'-'
-              $PackageBaseName = $simplePackageBaseName + '-' + $simpleVersion
+              $PackageBaseName = ($simplePackageBaseName + '-' + $simpleVersion).ToLower()
           }
 
           Write-Host "PackageBaseName: $PackageBaseName"
