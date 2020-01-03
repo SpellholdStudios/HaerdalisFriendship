@@ -154,7 +154,7 @@ A: Sure, we'd be happy to. If you are interested in translating, just send us a 
 
 ## <a name="versions" id="versions"></a>Versions History
 
-##### Version 5.6 (December 14, 2019)
+##### Version 1.2 (December 14, 2019)
 
 - Fixed an issue with *Auto-Package Generator tool*: new version of MacOS (Catalina) prevented the mod to be installed.
 
